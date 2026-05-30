@@ -1,8 +1,11 @@
+import AppRoutes from "./routes";
+import ErrorBoundary from "./components/ErrorBoundary";
+
 function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center text-5xl font-bold">
-      Revised Flow 🚀
-    </div>
+    <ErrorBoundary>
+      <AppRoutes />
+    </ErrorBoundary>
   );
 }
 
