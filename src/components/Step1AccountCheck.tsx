@@ -143,7 +143,7 @@ const Step1AccountCheck: React.FC<Props> = ({
     }
   };
 
-  
+
 
   return (
     <motion.div
@@ -152,35 +152,42 @@ const Step1AccountCheck: React.FC<Props> = ({
       transition={{ duration: 0.35 }}
       className="
 relative
-overflow-hidden
+overflow-y-auto
+max-h-[88vh]
+
 bg-zinc-900/90
 border
 border-zinc-800
-rounded-3xl
+
+rounded-[28px]
+
 p-5
 sm:p-6
-md:p-8
+lg:p-7
+
 shadow-2xl
 shadow-black/50
 backdrop-blur-xl
+
+w-full
 "
     >
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent" />
-      <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-2">
         Flashaid Care
       </h1>
 
-      <p className="text-zinc-400 leading-relaxed mb-8">
+      <p className="text-zinc-400 leading-relaxed mb-6">
         Let's verify your mobile number to continue.
       </p>
 
       {/* Account Question */}
-      <div className="mb-8">
-        <label className="block text-lg font-medium mb-4">
+      <div className="mb-6">
+        <label className="block text-base sm:text-lg font-medium mb-4">
           Do you have a Flashaid account?
         </label>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-3">
           <button
             type="button"
             onClick={() =>
@@ -189,11 +196,10 @@ backdrop-blur-xl
                 hasFlashaidAccount: true,
               })
             }
-            className={`p-4 rounded-xl border transition ${
-              data.hasFlashaidAccount === true
-                ? "bg-yellow-500/10 border-yellow-500 text-yellow-500 shadow-lg shadow-yellow-500/10 font-semibold"
-                : "border-zinc-700 hover:border-zinc-500"
-            }`}
+            className={`p-3 sm:p-4 rounded-xl border transition ${data.hasFlashaidAccount === true
+              ? "bg-yellow-500/10 border-yellow-500 text-yellow-500 shadow-lg shadow-yellow-500/10 font-semibold"
+              : "border-zinc-700 hover:border-zinc-500"
+              }`}
           >
             Yes
           </button>
@@ -206,11 +212,10 @@ backdrop-blur-xl
                 hasFlashaidAccount: false,
               })
             }
-            className={`p-4 rounded-xl border transition ${
-              data.hasFlashaidAccount === false
-                ? "bg-yellow-500/10 border-yellow-500 text-yellow-500 shadow-lg shadow-yellow-500/10 font-semibold"
-                : "border-zinc-700 hover:border-zinc-500"
-            }`}
+            className={`p-3 sm:p-4 rounded-xl border transition ${data.hasFlashaidAccount === false
+              ? "bg-yellow-500/10 border-yellow-500 text-yellow-500 shadow-lg shadow-yellow-500/10 font-semibold"
+              : "border-zinc-700 hover:border-zinc-500"
+              }`}
           >
             No
           </button>
@@ -250,9 +255,8 @@ font-medium
                 mobile: value,
               });
             }}
-            className={`${inputClass} pl-14 ${
-              showOtp ? "opacity-60 cursor-not-allowed" : ""
-            }`}
+            className={`${inputClass} pl-14 h-12 ${showOtp ? "opacity-60 cursor-not-allowed" : ""
+              }`}
           />
         </div>
 
@@ -276,7 +280,7 @@ font-medium
               opacity: 0,
               height: 0,
             }}
-            className="mt-8 border-t border-zinc-800 pt-6"
+            className="mt-6 border-t border-zinc-800 pt-5"
           >
             <div
               className="
@@ -295,7 +299,7 @@ backdrop-blur-sm
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center sm:justify-start">
+            <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
               {otpDigits.map((digit, index) => (
                 <input
                   style={{
@@ -306,20 +310,18 @@ backdrop-blur-sm
                   value={digit}
                   maxLength={1}
                   className="
-w-11
-h-11
+w-10
+h-10
 sm:w-12
 sm:h-12
-md:w-14
-md:h-14
 bg-zinc-800/80
 border
 border-zinc-700
 rounded-xl
-sm:rounded-2xl
+sm:rounded-xl
 text-center
-text-base
-md:text-lg
+text-sm
+sm:text-base
 font-semibold
 text-white
 outline-none
@@ -412,25 +414,35 @@ duration-200
       </AnimatePresence>
 
       {!showOtp && (
-        <div className="flex justify-stretch sm:justify-end mt-8">
+        <div className="flex justify-stretch sm:justify-end mt-6">
           <button
             onClick={handleContinue}
             disabled={data.hasFlashaidAccount === null || sendingOtp}
             className="
 w-full
 sm:w-auto
+
+min-w-[140px]
+
 px-6
 py-3
+
 bg-yellow-500
 hover:bg-yellow-400
+
 text-black
 font-semibold
+
 rounded-xl
+
 transition-all
 duration-200
+
 shadow-lg
 shadow-yellow-500/20
+
 hover:shadow-yellow-500/30
+
 disabled:opacity-50
 "
           >

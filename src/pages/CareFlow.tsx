@@ -43,50 +43,58 @@ export default function CareFlow() {
     <div className="relative min-h-screen bg-zinc-950 text-white overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Top Glow */}
         <div
           className="
-          absolute
-          -top-72
-          -left-72
-          h-[700px]
-          w-[700px]
-          rounded-full
-          bg-yellow-500/5
-          blur-[180px]
-        "
+        absolute
+        -top-72
+        -left-72
+        h-[700px]
+        w-[700px]
+        rounded-full
+        bg-yellow-500/5
+        blur-[180px]
+      "
         />
 
-        {/* Bottom Glow */}
         <div
           className="
-          absolute
-          -bottom-72
-          -right-72
-          h-[700px]
-          w-[700px]
-          rounded-full
-          bg-yellow-500/5
-          blur-[180px]
-        "
+        absolute
+        -bottom-72
+        -right-72
+        h-[700px]
+        w-[700px]
+        rounded-full
+        bg-yellow-500/5
+        blur-[180px]
+      "
         />
 
-        {/* Grid */}
         <div
           className="
-          absolute
-          inset-0
-          opacity-[0.03]
-          bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
-          bg-[size:80px_80px]
-        "
+        absolute
+        inset-0
+        opacity-[0.03]
+        bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
+        bg-[size:80px_80px]
+      "
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto min-h-screen px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16 min-h-screen items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          className="
+        grid
+        lg:grid-cols-[1.1fr_0.9fr]
+        gap-10
+        xl:gap-20
+        min-h-screen
+        py-8
+        lg:py-12
+        items-center
+      "
+        >
           {/* LEFT SIDE */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex flex-col justify-center">
             <div className="max-w-2xl">
               {/* Badge */}
               <div className="flex items-center gap-4 mb-6">
@@ -99,12 +107,12 @@ export default function CareFlow() {
 
               <h1
                 className="
-               text-5xl
-               xl:text-6xl
-               font-bold
-               leading-[1.05]
-               tracking-[-0.03em]
-               "
+              text-5xl
+              xl:text-6xl
+              font-bold
+              leading-[1.05]
+              tracking-[-0.03em]
+            "
               >
                 Protect What
                 <br />
@@ -113,33 +121,33 @@ export default function CareFlow() {
 
               <p
                 className="
-                mt-6
-                text-lg
-                text-zinc-400
-                leading-relaxed
-                max-w-xl
-              "
+              mt-6
+              text-lg
+              text-zinc-400
+              leading-relaxed
+              max-w-xl
+            "
               >
                 Complete a secure verification to explore health protection
                 options tailored to you and your family.
               </p>
 
               {/* Features */}
-              <div className="mt-12 space-y-8">
+              <div className="mt-10 space-y-7">
                 <div className="flex gap-4">
                   <div
                     className="
-                    flex
-                    h-12
-                    w-12
-                    items-center
-                    justify-center
-                    rounded-2xl
-                    border
-                    border-yellow-500/20
-                    bg-yellow-500/10
-                    text-yellow-500
-                  "
+                  flex
+                  h-12
+                  w-12
+                  items-center
+                  justify-center
+                  rounded-2xl
+                  border
+                  border-yellow-500/20
+                  bg-yellow-500/10
+                  text-yellow-500
+                "
                   >
                     <HiShieldCheck size={24} />
                   </div>
@@ -159,17 +167,17 @@ export default function CareFlow() {
                 <div className="flex gap-4">
                   <div
                     className="
-                    flex
-                    h-12
-                    w-12
-                    items-center
-                    justify-center
-                    rounded-2xl
-                    border
-                    border-yellow-500/20
-                    bg-yellow-500/10
-                    text-yellow-500
-                  "
+                  flex
+                  h-12
+                  w-12
+                  items-center
+                  justify-center
+                  rounded-2xl
+                  border
+                  border-yellow-500/20
+                  bg-yellow-500/10
+                  text-yellow-500
+                "
                   >
                     <FaHeartbeat size={20} />
                   </div>
@@ -189,17 +197,17 @@ export default function CareFlow() {
                 <div className="flex gap-4">
                   <div
                     className="
-                    flex
-                    h-12
-                    w-12
-                    items-center
-                    justify-center
-                    rounded-2xl
-                    border
-                    border-yellow-500/20
-                    bg-yellow-500/10
-                    text-yellow-500
-                  "
+                  flex
+                  h-12
+                  w-12
+                  items-center
+                  justify-center
+                  rounded-2xl
+                  border
+                  border-yellow-500/20
+                  bg-yellow-500/10
+                  text-yellow-500
+                "
                   >
                     <HiUserGroup size={22} />
                   </div>
@@ -218,17 +226,8 @@ export default function CareFlow() {
               </div>
 
               {/* Stats */}
-              <div className="mt-14 grid grid-cols-3 gap-4">
-                <div
-                  className="
-                  rounded-2xl
-                  border
-                  border-zinc-800
-                  bg-zinc-900/40
-                  backdrop-blur-sm
-                  p-5
-                "
-                >
+              <div className="mt-12 grid grid-cols-3 gap-4">
+                <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-sm p-5">
                   <p className="text-3xl font-bold text-yellow-500">100%</p>
 
                   <p className="mt-2 text-xs uppercase tracking-wide text-zinc-500">
@@ -236,16 +235,7 @@ export default function CareFlow() {
                   </p>
                 </div>
 
-                <div
-                  className="
-                  rounded-2xl
-                  border
-                  border-zinc-800
-                  bg-zinc-900/40
-                  backdrop-blur-sm
-                  p-5
-                "
-                >
+                <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-sm p-5">
                   <p className="text-3xl font-bold text-yellow-500">2 Min</p>
 
                   <p className="mt-2 text-xs uppercase tracking-wide text-zinc-500">
@@ -253,16 +243,7 @@ export default function CareFlow() {
                   </p>
                 </div>
 
-                <div
-                  className="
-                  rounded-2xl
-                  border
-                  border-zinc-800
-                  bg-zinc-900/40
-                  backdrop-blur-sm
-                  p-5
-                "
-                >
+                <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-sm p-5">
                   <p className="text-3xl font-bold text-yellow-500">24×7</p>
 
                   <p className="mt-2 text-xs uppercase tracking-wide text-zinc-500">
@@ -274,8 +255,8 @@ export default function CareFlow() {
           </div>
 
           {/* MOBILE HERO */}
-          <div className="lg:hidden text-center mb-6">
-            <p className="mt-4 text-yellow-500 text-sm font-semibold uppercase tracking-[0.35em]">
+          <div className="lg:hidden text-center py-6">
+            <p className="text-yellow-500 text-sm font-semibold uppercase tracking-[0.35em]">
               Flashaid Care
             </p>
 
@@ -286,47 +267,64 @@ export default function CareFlow() {
             </h1>
 
             <p className="mt-4 text-zinc-400">
-              Explore health protection options tailored for you and your
-              family.
+              Explore health protection options tailored for you and your family.
             </p>
           </div>
 
-          {/* FORM */}
-          <div className="w-full max-w-2xl mx-auto">
-            {currentStep === 1 && (
-              <Step1AccountCheck
-                data={data}
-                setData={setData}
-                sendOtp={sendOtp}
-                verifyOtp={verifyOtp}
-                onOtpVerified={async () => {
-                  try {
-                    const response = await getCareDetails(data.mobile);
+          {/* FORM SIDE */}
+          <div
+            className="
+          flex
+          items-center
+          justify-center
+          lg:justify-end
+          w-full
+        "
+          >
+            <div
+              className="
+            w-full
+            max-w-[560px]
+            lg:max-w-[520px]
+            xl:max-w-[560px]
+            max-h-[92vh]
+            overflow-y-auto
+          "
+            >
+              {currentStep === 1 && (
+                <Step1AccountCheck
+                  data={data}
+                  setData={setData}
+                  sendOtp={sendOtp}
+                  verifyOtp={verifyOtp}
+                  onOtpVerified={async () => {
+                    try {
+                      const response = await getCareDetails(data.mobile);
 
-                    console.log("CARE DETAILS:", response);
+                      console.log("CARE DETAILS:", response);
 
-                    setCareDetails(response);
+                      setCareDetails(response);
+                      setCurrentStep(2);
+                    } catch (error) {
+                      console.error(error);
+                    }
+                  }}
+                />
+              )}
 
-                    setCurrentStep(2);
-                  } catch (error) {
-                    console.error(error);
-                  }
-                }}
-              />
-            )}
-
-            {currentStep === 2 && (
-              <Step2CriticalIllness
-                mobileNumber={data.mobile}
-                careDetails={careDetails}
-                onNext={() => {
-                  setCurrentStep(3);
-                }}
-                onDrop={() => {
-                  alert("User not eligible");
-                }}
-              />
-            )}
+              {currentStep === 2 && (
+                <Step2CriticalIllness
+                  mobileNumber={data.mobile}
+                  careDetails={careDetails}
+                  onNext={() => {
+                    setCurrentStep(3);
+                  }}
+                  onDrop={() => {
+                    alert("User not eligible");
+                  }}
+                />
+              )}
+            </div>
           </div>
         </div>
       </div>

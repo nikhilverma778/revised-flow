@@ -27,56 +27,123 @@ export default function SomethingWentWrong() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         className="
-        relative
-        z-10
-        max-w-xl
-        w-full
-        rounded-3xl
-        border
-        border-zinc-800
-        bg-zinc-900/90
-        backdrop-blur-sm
-        p-10
-        shadow-2xl
-        shadow-black/50
-        text-center
-      "
+  relative
+  z-10
+
+  max-w-md
+  w-full
+
+  rounded-[28px]
+
+  border
+  border-zinc-800
+
+  bg-zinc-900/90
+  backdrop-blur-sm
+
+  p-6
+  sm:p-7
+
+  shadow-2xl
+  shadow-black/50
+
+  text-center
+"
       >
-        <div className="mx-auto h-16 w-16 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+        <div
+          className="
+    mx-auto
+
+    h-12
+    w-12
+
+    rounded-xl
+
+    bg-red-500/10
+    border
+    border-red-500/20
+
+    flex
+    items-center
+    justify-center
+  "
+        >
           <HiOutlineShieldExclamation
-            size={30}
+            size={22}
             className="text-red-400"
           />
         </div>
 
-        <p className="mt-8 text-yellow-500 text-sm font-semibold uppercase tracking-[0.35em]">
+        <p
+          className="
+    mt-5
+
+    text-yellow-500
+    text-xs
+
+    font-semibold
+    uppercase
+
+    tracking-[0.25em]
+  "
+        >
           Unexpected Error
         </p>
 
-        <h1 className="mt-4 text-5xl font-bold">
+        <h1
+          className="
+    mt-3
+
+    text-3xl
+    sm:text-4xl
+
+    font-bold
+    leading-tight
+  "
+        >
           Something Went Wrong
         </h1>
 
-        <p className="mt-5 text-zinc-400 leading-relaxed">
-          We encountered an unexpected issue while
-          processing your request. Please try again.
+        <p
+          className="
+    mt-3
+
+    text-sm
+    sm:text-base
+
+    text-zinc-400
+    leading-relaxed
+  "
+        >
+          We encountered an unexpected issue while processing your request.
+          Please try again.
         </p>
 
         <button
           onClick={reload}
           className="
-          mt-8
-          px-6
-          py-3
-          rounded-xl
-          bg-yellow-500
-          text-black
-          font-semibold
-          hover:bg-yellow-400
-          transition-all
-          shadow-lg
-          shadow-yellow-500/20
-        "
+    mt-6
+
+    w-full
+    sm:w-auto
+
+    px-5
+    py-2.5
+
+    rounded-xl
+
+    bg-yellow-500
+    text-black
+
+    font-semibold
+
+    hover:bg-yellow-400
+
+    transition-all
+
+    shadow-lg
+    shadow-yellow-500/20
+  "
         >
           Try Again
         </button>
