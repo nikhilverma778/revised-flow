@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiArrowRight } from "react-icons/hi";
+import { useCareSessionStore } from "../store/useCareSessionStore";
 
 interface Props {
   data: {
@@ -54,6 +55,10 @@ const Step1AccountCheck: React.FC<Props> = ({
   const [resendTimer, setResendTimer] = useState(0);
 
   const mobileRegex = /^[6-9]\d{9}$/;
+
+  const login = useCareSessionStore(
+  (state : any) => state.login
+);
 
   useEffect(() => {
     if (resendTimer <= 0) return;
@@ -122,6 +127,7 @@ const Step1AccountCheck: React.FC<Props> = ({
       const success = await verifyOtp(data.mobile, otp);
 
       if (success) {
+        login(data.mobile);
         onOtpVerified();
       } else {
         setOtpError("Invalid OTP");
@@ -172,7 +178,99 @@ backdrop-blur-xl
 w-full
 "
     >
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent" />
+     <div className="absolute inset-0 rounded-[28px] overflow-hidden pointer-events-none">
+
+  {/* Top */}
+  <motion.div
+    animate={{ x: ["-100%", "100%"] }}
+    transition={{
+      duration: 6,
+      repeat: Infinity,
+      ease: "linear",
+    }}
+    className="
+      absolute
+      top-0
+      left-0
+      h-[2px]
+      w-full
+      bg-gradient-to-r
+      from-transparent
+      via-yellow-400/90
+      to-transparent
+      opacity-80
+    "
+  />
+
+  {/* Right */}
+  <motion.div
+    animate={{ y: ["-100%", "100%"] }}
+    transition={{
+      duration: 6,
+      repeat: Infinity,
+      ease: "linear",
+      delay: 1.5,
+    }}
+    className="
+      absolute
+      top-0
+      right-0
+      w-[2px]
+      h-full
+      bg-gradient-to-b
+      from-transparent
+      via-yellow-400/90
+      to-transparent
+      opacity-80
+    "
+  />
+
+  {/* Bottom */}
+  <motion.div
+    animate={{ x: ["100%", "-100%"] }}
+    transition={{
+      duration: 6,
+      repeat: Infinity,
+      ease: "linear",
+      delay: 3,
+    }}
+    className="
+      absolute
+      bottom-0
+      left-0
+      h-[2px]
+      w-full
+      bg-gradient-to-r
+      from-transparent
+      via-yellow-400/90
+      to-transparent
+      opacity-80
+    "
+  />
+
+  {/* Left */}
+  <motion.div
+    animate={{ y: ["100%", "-100%"] }}
+    transition={{
+      duration: 6,
+      repeat: Infinity,
+      ease: "linear",
+      delay: 4.5,
+    }}
+    className="
+      absolute
+      top-0
+      left-0
+      w-[2px]
+      h-full
+      bg-gradient-to-b
+      from-transparent
+      via-yellow-400/90
+      to-transparent
+      opacity-80
+    "
+  />
+</div>
       <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-2">
         Flashaid Care
       </h1>

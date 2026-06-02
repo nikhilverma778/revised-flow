@@ -5,8 +5,14 @@ import Step2CriticalIllness from "../components/Step2CriticalIllness";
 import { HiShieldCheck, HiUserGroup } from "react-icons/hi2";
 import { FaHeartbeat } from "react-icons/fa";
 import { getCareDetails } from "../services/careFlowService";
+import NotEligibleCard from "../components/NotEligibleCard";
+import { useNavigate } from "react-router-dom";
+
 
 export default function CareFlow() {
+
+  const navigate = useNavigate();
+
   const [data, setData] = useState({
     hasFlashaidAccount: null as boolean | null,
     mobile: "",
@@ -15,6 +21,8 @@ export default function CareFlow() {
   const [currentStep, setCurrentStep] = useState(1);
 
   const [careDetails, setCareDetails] = useState<any>(null);
+
+  const [isEligible, setIsEligible] = useState(true);
 
   const sendOtp = async (mobile: string) => {
     await axios.post(
@@ -38,6 +46,56 @@ export default function CareFlow() {
       return false;
     }
   };
+
+  if (!isEligible) {
+    return (
+      <div className="relative min-h-screen bg-zinc-950 overflow-hidden">
+        {/* Background Glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div
+            className="
+          absolute
+          -top-72
+          -left-72
+          h-[700px]
+          w-[700px]
+          rounded-full
+          bg-red-500/5
+          blur-[180px]
+        "
+          />
+
+          <div
+            className="
+          absolute
+          -bottom-72
+          -right-72
+          h-[700px]
+          w-[700px]
+          rounded-full
+          bg-red-500/5
+          blur-[180px]
+        "
+          />
+
+          {/* Grid Lines */}
+          <div
+            className="
+          absolute
+          inset-0
+          opacity-[0.03]
+          bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
+          bg-[size:80px_80px]
+        "
+          />
+        </div>
+
+        <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
+          <NotEligibleCard />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative min-h-screen bg-zinc-950 text-white overflow-hidden">
@@ -300,9 +358,6 @@ export default function CareFlow() {
                   onOtpVerified={async () => {
                     try {
                       const response = await getCareDetails(data.mobile);
-
-                      console.log("CARE DETAILS:", response);
-
                       setCareDetails(response);
                       setCurrentStep(2);
                     } catch (error) {
@@ -317,10 +372,10 @@ export default function CareFlow() {
                   mobileNumber={data.mobile}
                   careDetails={careDetails}
                   onNext={() => {
-                    setCurrentStep(3);
+                    navigate("/faid-check");
                   }}
                   onDrop={() => {
-                    alert("User not eligible");
+                    setIsEligible(false);
                   }}
                 />
               )}
